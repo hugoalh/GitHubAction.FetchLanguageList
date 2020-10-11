@@ -35,6 +35,65 @@
 		owner: repositoryOwner,
 		repo: repositoryName
 	});
-	data = data.data;
-	console.log(data);
+	data = Object.keys(data.data);
+	let list = [];
+	switch (filter.toLowerCase()) {
+		case "none":
+			list = data;
+			break;
+		case "codeql":
+			data.forEach((element) => {
+				switch (element.toLowerCase()) {
+					case "csharp":
+					case "cpp":
+					case "go":
+					case "java":
+					case "javascript":
+					case "python":
+						list.push(element);
+						break;
+					default:
+						break;
+				};
+			});
+			break;
+		default:
+			throw new RangeError(`Argument "filter"'s value is not in the method list! Read the documentation for more information. ([GitHub Action] Language List`);
+			break;
+	};
+	switch (letterCase.toLowerCase()) {
+		case "low":
+			list.forEach((element, index) => {
+				list[index] = element.toLowerCase();
+			});
+			break;
+		case "keep":
+			break;
+		case "up":
+			list.forEach((element, index) => {
+				list[index] = element.toUpperCase();
+			});
+			break;
+		default:
+			throw new RangeError(`Argument "lettercase"'s value is not in the method list! Read the documentation for more information. ([GitHub Action] Language List`);
+			break;
+	};
+	let result;
+	switch (format.toLowerCase()) {
+		case "json":
+			result = JSON.stringify({
+				"list": list
+			});
+			break;
+		case "array":
+			result = list;
+			break;
+		case "comma":
+			result = list.join(",");
+			break;
+		default:
+			throw new RangeError(`Argument "format"'s value is not in the method list! Read the documentation for more information. ([GitHub Action] Language List`);
+			break;
+	};
+	githubAction.core.setOutput("language", result);
 })();
