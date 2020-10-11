@@ -14,7 +14,7 @@
 	"license": "MIT",
 	"author": "hugoalh",
 	"type": "module",
-	"main": "main.js",
+	"main": "main.mjs",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/hugoalh/GitHubAction.LanguageList.git"
