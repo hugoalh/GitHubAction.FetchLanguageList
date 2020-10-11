@@ -82,7 +82,7 @@
 	switch (format.toLowerCase()) {
 		case "json":
 			result = JSON.stringify({
-				"list": list
+				"language": list
 			});
 			break;
 		case "array":
@@ -95,6 +95,5 @@
 			throw new RangeError(`Argument "format"'s value is not in the method list! Read the documentation for more information. ([GitHub Action] Language List`);
 			break;
 	};
-	console.log(result);
 	githubAction.core.setOutput("language", result);
 })();

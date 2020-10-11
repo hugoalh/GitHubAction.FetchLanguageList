@@ -85,7 +85,7 @@ Any
 - **`format` \[Optional\]:** `<string = "json">` Format.
   - `"json"` Output a stringify JSON (e.g.:
     ```json
-    {"list":["javascript","python"]}
+    {"language":["javascript","python"]}
     ```
     ).
   - `"array"`
