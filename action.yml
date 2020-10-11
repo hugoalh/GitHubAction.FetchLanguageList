@@ -1,0 +1,34 @@
+name: "Language List"
+author: "hugoalh"
+description: "Get repository language list."
+inputs:
+  repository:
+    description: "{string} Repository."
+    required: false
+    default: "${{github.repository}}"
+  token:
+    description: "{string.secret} GitHub personal access token."
+    required: false
+    default: "${{github.token}}"
+  filter:
+    description: "{string} Result filter."
+    required: false
+    default: "none"
+  lettercase:
+    description: "{string} Letter case transform."
+    required: false
+    default: "low"
+  format:
+    description: "{string}"
+    required: false
+    default: "json"
+outputs:
+  language:
+    description: "{*} Language list."
+runs:
+  using: "node12"
+  pre: "setup.js"
+  main: "main.js"
+branding:
+  icon: "search"
+  color: "gray-dark"

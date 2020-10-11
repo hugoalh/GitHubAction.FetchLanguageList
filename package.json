@@ -1,0 +1,32 @@
+{
+	"name": "githubaction.languagelist",
+	"version": "0.1.0",
+	"description": "A GitHub action to get repository language list.",
+	"keywords": [
+		"github-action",
+		"language",
+		"list"
+	],
+	"homepage": "https://github.com/hugoalh/GitHubAction.LanguageList#readme",
+	"bugs": {
+		"url": "https://github.com/hugoalh/GitHubAction.LanguageList/issues"
+	},
+	"license": "MIT",
+	"author": "hugoalh",
+	"type": "module",
+	"main": "main.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/hugoalh/GitHubAction.LanguageList.git"
+	},
+	"dependencies": {
+		"@actions/core": "^1.2.6",
+		"@actions/github": "^4.0.0",
+		"@hugoalh/advanced-determine": "^3.4.0"
+	},
+	"engines": {
+		"node": ">= 10.0.0",
+		"npm": ">= 6.0.0"
+	},
+	"private": true
+}

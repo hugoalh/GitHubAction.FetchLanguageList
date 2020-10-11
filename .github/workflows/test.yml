@@ -1,0 +1,9 @@
+name: "Test"
+on: "workflow_dispatch"
+jobs:
+  get-language-list:
+    name: "Get Language List"
+    runs-on: "ubuntu-latest"
+    steps:
+      - id: "get-language-list-main"
+        uses: "hugoalh/GitHubAction.LanguageList@v1"
