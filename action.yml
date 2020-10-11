@@ -27,8 +27,8 @@ outputs:
     description: "{*} Language list."
 runs:
   using: "node12"
-  pre: "setup.mjs"
-  main: "main.mjs"
+  pre: "setup.js"
+  main: "main.js"
 branding:
   icon: "search"
   color: "gray-dark"
