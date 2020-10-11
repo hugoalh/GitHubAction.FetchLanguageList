@@ -6,4 +6,4 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - id: "get-language-list-main"
-        uses: "hugoalh/GitHubAction.LanguageList@v1"
+        uses: "hugoalh/GitHubAction.LanguageList@master"
