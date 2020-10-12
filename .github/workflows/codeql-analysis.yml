@@ -15,6 +15,10 @@ jobs:
     steps:
       - id: "get-language-list-main"
         uses: "hugoalh/GitHubAction.LanguageList@master"
+        with:
+          filter: "codeql"
+          lettercase: "lower"
+          format: "json"
   analysis:
     name: "Analysis"
     needs:

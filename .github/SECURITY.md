@@ -12,7 +12,7 @@
 
 | **Version** | **Support** |
 |:---:|:---:|
-| v0.1.0 | L |
+| v1.0.0 | L |
 
 ## Report Vulnerability
 

@@ -17,7 +17,7 @@ inputs:
   lettercase:
     description: "{string} Letter case transform."
     required: false
-    default: "low"
+    default: "lower"
   format:
     description: "{string}"
     required: false

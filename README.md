@@ -56,7 +56,7 @@ A GitHub action to get repository language list.
 
 - Simple setup.
 - Support all of the languages that detectable with [Linguist](https://github.com/github/linguist).
-- Helpful for building matrix.
+- Helpful for building language-based dynamic matrix.
 
 ## 🛠 Configuration
 
@@ -78,18 +78,13 @@ Any
 - **`filter` \[Optional\]:** `<string = "none">` Result filter.
   - `"none"` Output all of the language name that detected.
   - `"codeql"` Output all of the language name that detected and CodeQL is supported.
-- **`lettercase` \[Optional\]:** `<string = "low">` Letter case transform.
-  - `"low"` Convert to lower case (e.g.: `c`, `javascript`, `python`).
-  - `"up"` Convert to upper case (e.g.: `C`, `JAVASCRIPT`, `PYTHON`).
+- **`lettercase` \[Optional\]:** `<string = "lower">` Letter case transform.
+  - `"lower"` Convert to lower case (e.g.: `c`, `javascript`, `python`).
   - `"keep"` No case convert  (e.g.: `C`, `JavaScript`, `Python`).
+  - `"upper"` Convert to upper case (e.g.: `C`, `JAVASCRIPT`, `PYTHON`).
 - **`format` \[Optional\]:** `<string = "json">` Format.
-  - `"json"` Output a stringify JSON (e.g.:
-    ```json
-    {"language":["javascript","python"]}
-    ```
-    ).
-  - `"array"`
-  - `"comma"`
+  - `"json"` Output a stringify JSON (e.g.: `{"language":["c","javascript","python"]}`).
+  - `"comma"` Output a comma (`,`) separated string (e.g.: `"c,javascript,python"`).
 
 ### 📤 Output
 

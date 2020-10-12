@@ -62,14 +62,14 @@
 			break;
 	};
 	switch (letterCase.toLowerCase()) {
-		case "low":
+		case "lower":
 			list.forEach((element, index) => {
 				list[index] = element.toLowerCase();
 			});
 			break;
 		case "keep":
 			break;
-		case "up":
+		case "upper":
 			list.forEach((element, index) => {
 				list[index] = element.toUpperCase();
 			});
@@ -84,9 +84,6 @@
 			result = JSON.stringify({
 				"language": list
 			});
-			break;
-		case "array":
-			result = list;
 			break;
 		case "comma":
 			result = list.join(",");

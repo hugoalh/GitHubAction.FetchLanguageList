@@ -1,6 +1,6 @@
 {
 	"name": "githubaction.languagelist",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "A GitHub action to get repository language list.",
 	"keywords": [
 		"github-action",
