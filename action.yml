@@ -19,12 +19,12 @@ inputs:
     required: false
     default: "lower"
   format:
-    description: "{string}"
+    description: "{string} Format."
     required: false
     default: "json"
 outputs:
   language:
-    description: "{*} Language list."
+    description: "{(string|object)} Language list."
 runs:
   using: "node12"
   pre: "setup.js"

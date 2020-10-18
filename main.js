@@ -26,6 +26,9 @@
 	if (advancedDetermine.isString(repository) !== true) {
 		throw new TypeError(`Argument "repository" must be type of string (non-nullable)! ([GitHub Action] Language List)`);
 	};
+	if (repository.search(/^[\w\d\-\._]+\/[\w\d\-\._]+$/giu) !== 0) {
+		throw new SyntaxError(`Argument "repository"'s value does not match the required pattern! ([GitHub Action] Language List)`);
+	};
 	if (advancedDetermine.isString(token) !== true) {
 		throw new TypeError(`Argument "token" must be type of string (non-nullable)! ([GitHub Action] Language List)`);
 	};
@@ -35,14 +38,14 @@
 		owner: repositoryOwner,
 		repo: repositoryName
 	});
-	data = Object.keys(data.data);
-	let list = [];
+	let listFull = Object.keys(data.data),
+		listOutput = [];
 	switch (filter.toLowerCase()) {
 		case "none":
-			list = data;
+			listOutput = listFull;
 			break;
 		case "codeql":
-			data.forEach((element) => {
+			listFull.forEach((element) => {
 				switch (element.toLowerCase()) {
 					case "csharp":
 					case "cpp":
@@ -50,7 +53,7 @@
 					case "java":
 					case "javascript":
 					case "python":
-						list.push(element);
+						listOutput.push(element);
 						break;
 					default:
 						break;
@@ -63,15 +66,15 @@
 	};
 	switch (letterCase.toLowerCase()) {
 		case "lower":
-			list.forEach((element, index) => {
-				list[index] = element.toLowerCase();
+			listOutput.forEach((element, index) => {
+				listOutput[index] = element.toLowerCase();
 			});
 			break;
 		case "keep":
 			break;
 		case "upper":
-			list.forEach((element, index) => {
-				list[index] = element.toUpperCase();
+			listOutput.forEach((element, index) => {
+				listOutput[index] = element.toUpperCase();
 			});
 			break;
 		default:
@@ -82,11 +85,11 @@
 	switch (format.toLowerCase()) {
 		case "json":
 			result = JSON.stringify({
-				"language": list
+				"language": listOutput
 			});
 			break;
 		case "comma":
-			result = list.join(",");
+			result = listOutput.join(",");
 			break;
 		default:
 			throw new RangeError(`Argument "format"'s value is not in the method list! Read the documentation for more information. ([GitHub Action] Language List`);

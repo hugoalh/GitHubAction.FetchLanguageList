@@ -88,7 +88,7 @@ Any
 
 ### 📤 Output
 
-- **`language`:** `<*>` Language list.
+- **`language`:** `<(string|object)>` Language list.
 
 ### Example
 
@@ -101,7 +101,7 @@ jobs:
       matrix: "${{steps.get-language-list-main.outputs.language}}"
     steps:
       - id: "get-language-list-main"
-        uses: "hugoalh/GitHubAction.LanguageList@v1"
+        uses: "hugoalh/GitHubAction.LanguageList@v1.0.0"
         with:
           filter: "codeql"
           lettercase: "lower"
@@ -116,7 +116,7 @@ jobs:
       matrix: "${{fromJSON(needs.get-language-list.outputs.matrix)}}"
     steps:
       - name: "Checkout Repository"
-        uses: "actions/checkout@v2"
+        uses: "actions/checkout@v2.3.3"
         with:
           fetch-depth: 2
       - name: "Checkout Pull Request"
