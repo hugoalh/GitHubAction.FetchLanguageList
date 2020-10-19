@@ -22,7 +22,6 @@ updates:
     pull-request-branch-name:
       separator: "/"
     rebase-strategy: "disabled"
-    versioning-strategy: "auto"
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
