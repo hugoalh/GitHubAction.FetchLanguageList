@@ -32,9 +32,9 @@
 	if (advancedDetermine.isString(token) !== true) {
 		throw new TypeError(`Argument "token" must be type of string (non-nullable)! ([GitHub Action] Language List)`);
 	};
-	const Octokit = githubAction.github.getOctokit(token);
+	const octokit = githubAction.github.getOctokit(token);
 	let [repositoryOwner, repositoryName] = repository.split("/");
-	let data = await Octokit.repos.listLanguages({
+	let data = await octokit.repos.listLanguages({
 		owner: repositoryOwner,
 		repo: repositoryName
 	});
