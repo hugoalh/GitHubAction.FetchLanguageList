@@ -26,7 +26,7 @@
 	if (advancedDetermine.isString(repository) !== true) {
 		throw new TypeError(`Argument "repository" must be type of string (non-nullable)! ([GitHub Action] Language List)`);
 	};
-	if (repository.search(/^[\w\d\-\._]+\/[\w\d\-\._]+$/giu) !== 0) {
+	if (repository.search(/^[\w\d\-._]+\/[\w\d\-._]+$/giu) !== 0) {
 		throw new SyntaxError(`Argument "repository"'s value does not match the required pattern! ([GitHub Action] Language List)`);
 	};
 	if (advancedDetermine.isString(token) !== true) {
@@ -62,7 +62,6 @@
 			break;
 		default:
 			throw new RangeError(`Argument "filter"'s value is not in the method list! Read the documentation for more information. ([GitHub Action] Language List`);
-			break;
 	};
 	switch (letterCase.toLowerCase()) {
 		case "lower":
@@ -79,7 +78,6 @@
 			break;
 		default:
 			throw new RangeError(`Argument "lettercase"'s value is not in the method list! Read the documentation for more information. ([GitHub Action] Language List`);
-			break;
 	};
 	let result;
 	switch (format.toLowerCase()) {
@@ -93,7 +91,6 @@
 			break;
 		default:
 			throw new RangeError(`Argument "format"'s value is not in the method list! Read the documentation for more information. ([GitHub Action] Language List`);
-			break;
 	};
 	githubAction.core.setOutput("language", result);
 })();
