@@ -10,9 +10,9 @@
 > | ❌ | **No:** This is not supported due to this version(s) is too old. |
 > | ⚠ | **Issue:** This is not supported due to this version(s) is confirmed contains bug(s) and/or issue(s). |
 
-| **Version** | **Support** |
-|:---:|:---:|
-| v1.0 | L |
+| **Version** | **Targeted NodeJS Version** | **Support** |
+|:---:|:---:|:---:|
+| v1.0 | v12.0.0 | L |
 
 ## Report Vulnerability
 
