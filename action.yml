@@ -2,14 +2,14 @@ name: "Language List"
 author: "hugoalh"
 description: "Get repository language list."
 inputs:
-  repository:
-    description: "{string} Repository."
-    required: false
-    default: "${{github.repository}}"
   token:
     description: "{string.secret} GitHub personal access token."
     required: false
     default: "${{github.token}}"
+  repository:
+    description: "{string} Repository."
+    required: false
+    default: "${{github.repository}}"
   filter:
     description: "{string} Result filter."
     required: false
