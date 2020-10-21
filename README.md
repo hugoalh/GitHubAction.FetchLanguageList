@@ -73,8 +73,8 @@ Any
 
 ### 📥 Input
 
-- **`repository` \[Optional\]:** `<string = "${{github.repository}}">` Repository. Default is current repository.
 - **`token` \[Optional\]:** `<string.secret = "${{github.token}}">` GitHub personal access token.
+- **`repository` \[Optional\]:** `<string = "${{github.repository}}">` Repository. Default is current repository.
 - **`filter` \[Optional\]:** `<string = "none">` Result filter.
   - `"none"` Output all of the language name that detected.
   - `"codeql"` Output all of the language name that detected and CodeQL is supported.
