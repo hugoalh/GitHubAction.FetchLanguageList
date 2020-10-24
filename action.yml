@@ -13,7 +13,7 @@ inputs:
   filter:
     description: "{string} Result filter."
     required: false
-    default: "none"
+    default: "full"
   lettercase:
     description: "{string} Letter case transform."
     required: false

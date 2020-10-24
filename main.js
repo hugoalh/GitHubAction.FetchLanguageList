@@ -38,9 +38,13 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 		owner: repositoryOwner,
 		repo: repositoryName
 	});
+	if (data.status !== 200) {
+		githubAction.core.warning(`Receive status code ${data.status}! May cause error in the beyond. ([GitHub Action] Language List)`);
+	};
 	let listFull = Object.keys(data.data),
 		listOutput = [];
 	switch (filter.toLowerCase()) {
+		case "full":
 		case "none":
 			listOutput = listFull;
 			break;
@@ -64,12 +68,12 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 			throw new RangeError(`Argument "filter"'s value is not in the method list! Read the documentation for more information. ([GitHub Action] Language List`);
 	};
 	switch (letterCase.toLowerCase()) {
+		case "keep":
+			break;
 		case "lower":
 			listOutput.forEach((element, index) => {
 				listOutput[index] = element.toLowerCase();
 			});
-			break;
-		case "keep":
 			break;
 		case "upper":
 			listOutput.forEach((element, index) => {
@@ -81,13 +85,13 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 	};
 	let result;
 	switch (format.toLowerCase()) {
+		case "comma":
+			result = listOutput.join(",");
+			break;
 		case "json":
 			result = JSON.stringify({
 				"language": listOutput
 			});
-			break;
-		case "comma":
-			result = listOutput.join(",");
 			break;
 		default:
 			throw new RangeError(`Argument "format"'s value is not in the method list! Read the documentation for more information. ([GitHub Action] Language List`);
