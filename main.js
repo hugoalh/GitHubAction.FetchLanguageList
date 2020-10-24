@@ -3,12 +3,12 @@
 	Language:
 		NodeJS/12.0.0
 ==================*/
+const advancedDetermine = require("@hugoalh/advanced-determine"),
+	githubAction = {
+		core: require("@actions/core"),
+		github: require("@actions/github")
+	};
 (async () => {
-	const advancedDetermine = require("@hugoalh/advanced-determine"),
-		githubAction = {
-			core: require("@actions/core"),
-			github: require("@actions/github")
-		};
 	let filter = githubAction.core.getInput("filter"),
 		format = githubAction.core.getInput("format"),
 		letterCase = githubAction.core.getInput("lettercase"),
