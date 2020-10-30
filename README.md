@@ -68,8 +68,8 @@ Any
 
 #### Software
 
-- NodeJS (>= v12)
-- NPM (>= v6)
+- NodeJS (>= v12.13)
+- NPM (>= v6.12)
 
 ### 📥 Input
 
@@ -140,3 +140,4 @@ jobs:
 ### 📚 Guide
 
 - [GitHub Actions: Creating and storing encrypted secrets](https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)
+- [GitHub Actions: Enable debug logs](https://github.com/actions/toolkit/blob/main/docs/action-debugging.md#step-debug-logs)
