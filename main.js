@@ -9,8 +9,7 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 		github: require("@actions/github")
 	};
 (async () => {
-	let debugMode = githubAction.core.isDebug(),
-		filter = githubAction.core.getInput("filter"),
+	let filter = githubAction.core.getInput("filter"),
 		format = githubAction.core.getInput("format"),
 		letterCase = githubAction.core.getInput("lettercase"),
 		repository = githubAction.core.getInput("repository"),
@@ -33,14 +32,10 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 	if (advancedDetermine.isString(token) !== true) {
 		throw new TypeError(`Argument "token" must be type of string (non-nullable)! ([GitHub Action] Language List)`);
 	};
-	if (debugMode === true) {
-		githubAction.core.debug(`Set up GitHub Octokit. ([GitHub Action] Language List)`);
-	};
+	githubAction.core.debug(`Set up GitHub Octokit. ([GitHub Action] Language List)`);
 	const octokit = githubAction.github.getOctokit(token);
 	let [repositoryOwner, repositoryName] = repository.split("/");
-	if (debugMode === true) {
-		githubAction.core.debug(`Start to fetch repository language list. ([GitHub Action] Language List)`);
-	};
+	githubAction.core.debug(`Start to fetch repository language list. ([GitHub Action] Language List)`);
 	let data = await octokit.repos.listLanguages({
 		owner: repositoryOwner,
 		repo: repositoryName
@@ -48,14 +43,10 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 	if (data.status !== 200) {
 		githubAction.core.warning(`Receive status code ${data.status}! May cause error in the beyond. ([GitHub Action] Language List)`);
 	};
-	if (debugMode === true) {
-		githubAction.core.debug(`Receive fetch data. ([GitHub Action] Language List)`);
-	};
+	githubAction.core.debug(`Receive fetch data. ([GitHub Action] Language List)`);
 	let listFull = Object.keys(data.data),
 		listOutput = [];
-	if (debugMode === true) {
-		githubAction.core.debug(`Language (Fetch): ${(listFull.length > 0) ? listFull.join(", ") : "N/A"} ([GitHub Action] Language List)`);
-	};
+	githubAction.core.debug(`Language (Fetch): ${(listFull.length > 0) ? listFull.join(", ") : "N/A"} ([GitHub Action] Language List)`);
 	switch (filter.toLowerCase()) {
 		case "full":
 		case "none":
@@ -80,9 +71,7 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 		default:
 			throw new RangeError(`Argument "filter"'s value is not in the method list! Read the documentation for more information. ([GitHub Action] Language List`);
 	};
-	if (debugMode === true) {
-		githubAction.core.debug(`Language (Filter): ${(listOutput.length > 0) ? listOutput.join(", ") : "N/A"} ([GitHub Action] Language List)`);
-	};
+	githubAction.core.debug(`Language (Filter): ${(listOutput.length > 0) ? listOutput.join(", ") : "N/A"} ([GitHub Action] Language List)`);
 	switch (letterCase.toLowerCase()) {
 		case "keep":
 			break;
@@ -99,9 +88,7 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 		default:
 			throw new RangeError(`Argument "lettercase"'s value is not in the method list! Read the documentation for more information. ([GitHub Action] Language List`);
 	};
-	if (debugMode === true) {
-		githubAction.core.debug(`Language (Letter Case): ${(listOutput.length > 0) ? listOutput.join(", ") : "N/A"} ([GitHub Action] Language List)`);
-	};
+	githubAction.core.debug(`Language (Letter Case): ${(listOutput.length > 0) ? listOutput.join(", ") : "N/A"} ([GitHub Action] Language List)`);
 	let result;
 	switch (format.toLowerCase()) {
 		case "comma":
@@ -115,8 +102,6 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 		default:
 			throw new RangeError(`Argument "format"'s value is not in the method list! Read the documentation for more information. ([GitHub Action] Language List`);
 	};
-	if (debugMode === true) {
-		githubAction.core.debug(`Output - language: ${result} ([GitHub Action] Language List)`);
-	};
+	githubAction.core.debug(`Output - language: ${result} ([GitHub Action] Language List)`);
 	githubAction.core.setOutput("language", result);
 })();
