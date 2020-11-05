@@ -120,5 +120,6 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 	if (logMoreDetail === true) {
 		githubAction.core.info(`Language List - Format: ${result} ([GitHub Action] Language List)`);
 	};
+	githubAction.core.info(`Export workflow argument. ([GitHub Action] Language List)`);
 	githubAction.core.setOutput("language", result);
 })();
