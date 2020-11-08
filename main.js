@@ -29,7 +29,7 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 		throw new TypeError(`Argument "repository" must be type of string (non-nullable)! ([GitHub Action] Language List)`);
 	};
 	if (repository.search(/^[\w\d\-._]+\/[\w\d\-._]+$/giu) !== 0) {
-		throw new SyntaxError(`Argument "repository"'s value does not match the required pattern! ([GitHub Action] Language List)`);
+		throw new SyntaxError(`Argument "repository"'s value is not match the required pattern! ([GitHub Action] Language List)`);
 	};
 	if (advancedDetermine.isString(token) !== true) {
 		throw new TypeError(`Argument "token" must be type of string (non-nullable)! ([GitHub Action] Language List)`);
@@ -40,8 +40,6 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 	let data = await octokit.repos.listLanguages({
 		owner: repositoryOwner,
 		repo: repositoryName
-	}).catch((error) => {
-		throw error;
 	});
 	githubAction.core.info(`Receive network response from GitHub. ([GitHub Action] Language List)`);
 	if (data.status !== 200) {
@@ -74,7 +72,7 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 			});
 			break;
 		default:
-			throw new RangeError(`Argument "filter"'s value is not in the method list! Read the documentation for more information. ([GitHub Action] Language List`);
+			throw new RangeError(`Argument "filter"'s value is not in the method list! ([GitHub Action] Language List`);
 	};
 	githubAction.core.debug(`Language List - Filter: ${(listOutput.length > 0) ? listOutput.join(", ") : "N/A"} ([GitHub Action] Language List)`);
 	githubAction.core.info(`Letter case language list. ([GitHub Action] Language List)`);
@@ -92,7 +90,7 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 			});
 			break;
 		default:
-			throw new RangeError(`Argument "lettercase"'s value is not in the method list! Read the documentation for more information. ([GitHub Action] Language List`);
+			throw new RangeError(`Argument "lettercase"'s value is not in the method list! ([GitHub Action] Language List`);
 	};
 	githubAction.core.debug(`Language List - Letter Case: ${(listOutput.length > 0) ? listOutput.join(", ") : "N/A"} ([GitHub Action] Language List)`);
 	githubAction.core.info(`Format language list. ([GitHub Action] Language List)`);
@@ -107,11 +105,12 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 			});
 			break;
 		default:
-			throw new RangeError(`Argument "format"'s value is not in the method list! Read the documentation for more information. ([GitHub Action] Language List`);
+			throw new RangeError(`Argument "format"'s value is not in the method list! ([GitHub Action] Language List`);
 	};
 	githubAction.core.debug(`Language List - Format: ${result} ([GitHub Action] Language List)`);
 	githubAction.core.info(`Export workflow argument. ([GitHub Action] Language List)`);
 	githubAction.core.setOutput("language", result);
 })().catch((error) => {
-	throw error;
+	githubAction.core.error(error);
+	process.exit(1);
 });
