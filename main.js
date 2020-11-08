@@ -112,4 +112,6 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 	githubAction.core.debug(`Language List - Format: ${result} ([GitHub Action] Language List)`);
 	githubAction.core.info(`Export workflow argument. ([GitHub Action] Language List)`);
 	githubAction.core.setOutput("language", result);
-})();
+})().catch((error) => {
+	throw error;
+});
