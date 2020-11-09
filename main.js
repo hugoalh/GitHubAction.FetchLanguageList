@@ -71,6 +71,18 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 				};
 			});
 			break;
+		case "ossar":
+			listFull.forEach((element) => {
+				switch (element.toLowerCase()) {
+					case "javascript":
+					case "python":
+						listOutput.push(element);
+						break;
+					default:
+						break;
+				};
+			});
+			break;
 		default:
 			throw new RangeError(`Argument "filter"'s value is not in the method list! ([GitHub Action] Language List`);
 	};
@@ -98,6 +110,9 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 	switch (format.toLowerCase()) {
 		case "comma":
 			result = listOutput.join(",");
+			break;
+		case "dispatch":
+			result = (listOutput.length > 0) ? "true" : "false";
 			break;
 		case "json":
 			result = JSON.stringify({
