@@ -1,6 +1,6 @@
 {
 	"name": "githubaction.languagelist",
-	"version": "1.0.10",
+	"version": "1.0.11",
 	"description": "A GitHub action to get repository language list.",
 	"keywords": [
 		"github-action",
@@ -21,7 +21,7 @@
 	"dependencies": {
 		"@actions/core": "^1.2.6",
 		"@actions/github": "^4.0.0",
-		"@hugoalh/advanced-determine": "^4.0.0"
+		"@hugoalh/advanced-determine": "^4.2.0"
 	},
 	"engines": {
 		"node": ">= 12.13.0",
