@@ -29,7 +29,7 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 		throw new TypeError(`Argument "repository" must be type of string (non-nullable)! ([GitHub Action] Language List)`);
 	};
 	if (repository.search(/^[\w\d\-._]+\/[\w\d\-._]+$/giu) !== 0) {
-		throw new SyntaxError(`Argument "repository"'s value is not match the required pattern! ([GitHub Action] Language List)`);
+		throw new SyntaxError(`Argument "repository"'s value is not match the require pattern! ([GitHub Action] Language List)`);
 	};
 	if (advancedDetermine.isStringSingleLine(token, { allowWhitespace: false }) !== true) {
 		throw new TypeError(`Argument "token" must be type of string (non-nullable)! ([GitHub Action] Language List)`);
