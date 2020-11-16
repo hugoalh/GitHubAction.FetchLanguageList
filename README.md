@@ -94,7 +94,46 @@ Any
 
 ### Example
 
-```yaml
+#### Non Matrix Edition
+
+```yml
+jobs:
+  main:
+    name: "Main"
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Get Language List"
+        id: "get-language-list"
+        uses: "hugoalh/GitHubAction.LanguageList@master"
+        with:
+          filter: "codeql"
+          lettercase: "lower"
+          format: "comma"
+      - name: "Checkout Repository"
+        uses: "actions/checkout@v2.3.4"
+        with:
+          fetch-depth: 2
+      - name: "Checkout Pull Request"
+        if: "${{github.event_name == 'pull_request'}}"
+        run: "git checkout HEAD^2"
+      - name: "Initialize CodeQL"
+        uses: "github/codeql-action/init@v1"
+        with:
+          languages: "${{steps.get-language-list.outputs.language}}"
+          queries: "+security-and-quality"
+      # - name: "Auto Build"
+      #   uses: "github/codeql-action/autobuild@v1"
+      # - name: "Build"
+      #   run: |
+      #     make bootstrap
+      #     make release
+      - name: "Analyze Repository"
+        uses: "github/codeql-action/analyze@v1"
+```
+
+#### Matrix Edition
+
+```yml
 jobs:
   get-language-list:
     name: "Get Language List"
