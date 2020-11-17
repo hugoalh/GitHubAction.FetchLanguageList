@@ -98,9 +98,9 @@ Any
 #### `format`
 
 **\[Optional\]** `<string = "json">` Format.
-  - `"comma"` Output a comma (`,`) separated string (e.g.: `"c,javascript,python"`).
-  - `"dispatch"` (>= v1.0.10) Output a boolean string (i.e.: `"true"` or `"false"`).
-  - `"json"` Output a stringify JSON (e.g.: `{"language":["c","javascript","python"]}`).
+- `"comma"` Output a comma (`,`) separated string (e.g.: `"c,javascript,python"`).
+- `"dispatch"` (>= v1.0.10) Output a boolean string (i.e.: `"true"` or `"false"`).
+- `"json"` Output a stringify JSON (e.g.: `{"language":["c","javascript","python"]}`).
 
 ### 📤 Output
 
