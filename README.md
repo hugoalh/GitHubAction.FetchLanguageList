@@ -73,24 +73,40 @@ Any
 
 ### 📥 Input
 
-- **`token` \[Optional\]:** `<string.secret = "${{github.token}}">` GitHub personal access token.
-- **`repository` \[Optional\]:** `<string = "${{github.repository}}">` Repository. Default is current repository.
-- **`filter` \[Optional\]:** `<string = "full">` Result filter.
-  - `"full"`/`"none"` Output all of the language name that detected.
-  - `"codeql"` Output all of the language name that detected and CodeQL is supported.
-  - `"ossar"` (>= v1.0.10) Output all of the language name that detected and OSSAR (Open Source Static Analysis Runner) is supported.
-- **`lettercase` \[Optional\]:** `<string = "lower">` Letter case transform.
-  - `"keep"` No case convert  (e.g.: `C`, `JavaScript`, `Python`).
-  - `"lower"` Convert to lower case (e.g.: `c`, `javascript`, `python`).
-  - `"upper"` Convert to upper case (e.g.: `C`, `JAVASCRIPT`, `PYTHON`).
-- **`format` \[Optional\]:** `<string = "json">` Format.
+#### `token`
+
+**\[Optional\]** `<string.secret = "${{github.token}}">` GitHub personal access token.
+
+#### `repository`
+
+**\[Optional\]** `<string = "${{github.repository}}">` Repository. Default is current repository.
+
+#### `filter`
+
+**\[Optional\]** `<string = "full">` Result filter.
+- `"full"`/`"none"` Output all of the language name that detected.
+- `"codeql"` Output all of the language name that detected and CodeQL is supported.
+- `"ossar"` (>= v1.0.10) Output all of the language name that detected and OSSAR (Open Source Static Analysis Runner) is supported.
+
+#### `lettercase`
+
+**\[Optional\]** `<string = "lower">` Letter case transform.
+- `"keep"` No case convert  (e.g.: `C`, `JavaScript`, `Python`).
+- `"lower"` Convert to lower case (e.g.: `c`, `javascript`, `python`).
+- `"upper"` Convert to upper case (e.g.: `C`, `JAVASCRIPT`, `PYTHON`).
+
+#### `format`
+
+**\[Optional\]** `<string = "json">` Format.
   - `"comma"` Output a comma (`,`) separated string (e.g.: `"c,javascript,python"`).
   - `"dispatch"` (>= v1.0.10) Output a boolean string (i.e.: `"true"` or `"false"`).
   - `"json"` Output a stringify JSON (e.g.: `{"language":["c","javascript","python"]}`).
 
 ### 📤 Output
 
-- **`language`:** `<(string|object)>` Language list.
+#### `language`
+
+`<(string|object)>` Language list.
 
 ### Example
 
