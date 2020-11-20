@@ -1,6 +1,6 @@
-name: "Language List"
+name: "Fetch Language List"
 author: "hugoalh"
-description: "Get repository language list."
+description: "Fetch repository language list."
 inputs:
   token:
     description: "{string.secret} GitHub personal access token."

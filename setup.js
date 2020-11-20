@@ -1,5 +1,5 @@
 /*==================
-[GitHub Action] Language List - Setup
+[GitHub Action] Fetch Language List - Setup
 	Language:
 		NodeJS/12.13.0
 ==================*/

@@ -1,22 +1,22 @@
 {
-	"name": "githubaction.languagelist",
+	"name": "githubaction.fetchlanguagelist",
 	"version": "1.0.12",
-	"description": "A GitHub action to get repository language list.",
+	"description": "A GitHub action to fetch repository language list.",
 	"keywords": [
 		"github-action",
 		"language",
 		"list"
 	],
-	"homepage": "https://github.com/hugoalh/GitHubAction.LanguageList#readme",
+	"homepage": "https://github.com/hugoalh/GitHubAction.FetchLanguageList#readme",
 	"bugs": {
-		"url": "https://github.com/hugoalh/GitHubAction.LanguageList/issues"
+		"url": "https://github.com/hugoalh/GitHubAction.FetchLanguageList/issues"
 	},
 	"license": "MIT",
 	"author": "hugoalh",
 	"main": "main.js",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/hugoalh/GitHubAction.LanguageList.git"
+		"url": "git+https://github.com/hugoalh/GitHubAction.FetchLanguageList.git"
 	},
 	"dependencies": {
 		"@actions/core": "^1.2.6",

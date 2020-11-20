@@ -8,7 +8,7 @@ assignees: ""
 > ### Suggested Content List
 >
 > - **Describe:** What the bug is?
-> - **Version:** Must be a supported version(s) listed in the "[Security Policy](https://github.com/hugoalh/GitHubAction.LanguageList/security/policy)".
+> - **Version:** Must be a supported version(s) listed in the "[Security Policy](https://github.com/hugoalh/GitHubAction.FetchLanguageList/security/policy)".
 > - **To Reproduce:** If this bug can be reproduce, please list your step(s)!
 > - **Expected Behavior:** What thing(s) should expected to happen?
 >
