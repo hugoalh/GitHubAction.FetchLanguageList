@@ -1,6 +1,6 @@
 {
 	"name": "githubaction.fetchlanguagelist",
-	"version": "1.0.12",
+	"version": "1.0.13",
 	"description": "A GitHub action to fetch repository language list.",
 	"keywords": [
 		"github-action",
