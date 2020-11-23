@@ -24,7 +24,7 @@ inputs:
     default: "json"
 outputs:
   language:
-    description: "{(string|object)} Language list."
+    description: "{(string|object.json)} Language list."
 runs:
   using: "node12"
   pre: "setup.js"

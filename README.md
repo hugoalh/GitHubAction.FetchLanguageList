@@ -106,7 +106,7 @@ Any
 
 #### `language`
 
-`<(string|object)>` Language list.
+`<(string|object.json)>` Language list.
 
 ### Example
 
