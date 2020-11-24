@@ -55,8 +55,8 @@ A GitHub action to fetch repository language list.
 ### 🌟 Feature
 
 - Simple setup.
-- Support all of the languages that detectable with [Linguist](https://github.com/github/linguist).
-- Helpful for building language-based dynamic matrix.
+- Support all of the languages that detectable by [Linguist](https://github.com/github/linguist).
+- Helpful for building language based dynamic matrix.
 
 ## 🛠 Configuration
 
@@ -79,14 +79,14 @@ Any
 
 #### `repository`
 
-**\[Optional\]** `<string = "${{github.repository}}">` Repository. Default is current repository.
+**\[Optional\]** `<string = "${{github.repository}}">` Repository; Default is current repository.
 
 #### `filter`
 
-**\[Optional\]** `<string = "full">` Result filter.
-- `"full"`/`"none"` Output all of the language name that detected.
-- `"codeql"` Output all of the language name that detected and CodeQL is supported.
-- `"ossar"` (>= v1.0.10) Output all of the language name that detected and OSSAR (Open Source Static Analysis Runner) is supported.
+**\[Optional\]** `<string = "none">` Result filter.
+- `"none"`/`"no"` Output all of the language names that detected.
+- `"codeql"` Output all of the language names that detected and CodeQL is supported.
+- `"ossar"` Output all of the language names that detected and OSSAR (Open Source Static Analysis Runner) is supported.
 
 #### `lettercase`
 
@@ -99,8 +99,8 @@ Any
 
 **\[Optional\]** `<string = "json">` Format.
 - `"comma"` Output a comma (`,`) separated string (e.g.: `"c,javascript,python"`).
-- `"dispatch"` (>= v1.0.10) Output a boolean string (i.e.: `"true"` or `"false"`).
-- `"json"` Output a stringify JSON (e.g.: `{"language":["c","javascript","python"]}`).
+- `"dispatch"` Output a boolean (i.e.: `true` or `false`).
+- `"json"` Output a object JSON (e.g.: `{ "language": [ "c", "javascript", "python" ] }`).
 
 ### 📤 Output
 
@@ -120,7 +120,7 @@ jobs:
     steps:
       - name: "Fetch Language List"
         id: "fetch-language-list"
-        uses: "hugoalh/GitHubAction.FetchLanguageList@master"
+        uses: "hugoalh/GitHubAction.FetchLanguageList@v1.1.0"
         with:
           filter: "codeql"
           lettercase: "lower"
@@ -158,7 +158,7 @@ jobs:
       matrix: "${{steps.fetch-language-list-main.outputs.language}}"
     steps:
       - id: "fetch-language-list-main"
-        uses: "hugoalh/GitHubAction.FetchLanguageList@v1.0.0"
+        uses: "hugoalh/GitHubAction.FetchLanguageList@v1.1.0"
         with:
           filter: "codeql"
           lettercase: "lower"

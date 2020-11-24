@@ -51,8 +51,8 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 	githubAction.core.debug(`Language List - Fetch: ${(listFull.length > 0) ? listFull.join(", ") : "N/A"} ([GitHub Action] Fetch Language List)`);
 	githubAction.core.info(`Filter language list. ([GitHub Action] Fetch Language List)`);
 	switch (filter.toLowerCase()) {
-		case "full":
 		case "none":
+		case "no":
 			listOutput = listFull;
 			break;
 		case "codeql":
