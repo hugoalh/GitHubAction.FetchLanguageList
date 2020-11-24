@@ -23,6 +23,8 @@ inputs:
     required: false
     default: "json"
 outputs:
+  dispatch:
+    description: "{boolean} Signal."
   language:
     description: "{(string|object.json)} Language list."
 runs:

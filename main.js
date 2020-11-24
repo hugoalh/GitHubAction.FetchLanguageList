@@ -19,13 +19,42 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 	if (advancedDetermine.isStringSingleLine(filter, { allowWhitespace: false }) !== true) {
 		throw new TypeError(`Argument "filter" must be type of string (non-nullable)! ([GitHub Action] Fetch Language List)`);
 	};
+	switch (filter.toLowerCase()) {
+		case "none":
+		case "no":
+			filter = "none";
+			break;
+		case "codeql":
+		case "ossar":
+			filter = filter.toLowerCase();
+			break;
+		default:
+			throw new RangeError(`Argument "filter"'s value is not in the method list! ([GitHub Action] Fetch Language List)`);
+	};
 	if (advancedDetermine.isStringSingleLine(format, { allowWhitespace: false }) !== true) {
 		throw new TypeError(`Argument "format" must be type of string (non-nullable)! ([GitHub Action] Fetch Language List)`);
+	};
+	switch (format.toLowerCase()) {
+		case "comma":
+		case "json":
+			format = format.toLowerCase();
+			break;
+		default:
+			throw new RangeError(`Argument "format"'s value is not in the method list! ([GitHub Action] Fetch Language List)`);
 	};
 	if (advancedDetermine.isStringSingleLine(letterCase, { allowWhitespace: false }) !== true) {
 		throw new TypeError(`Argument "lettercase" must be type of string (non-nullable)! ([GitHub Action] Fetch Language List)`);
 	};
-	if (advancedDetermine.isStringSingleLine(repository, { allowWhitespace: false }) !== true) {
+	switch (letterCase.toLowerCase()) {
+		case "keep":
+		case "lower":
+		case "upper":
+			letterCase = letterCase.toLowerCase();
+			break;
+		default:
+			throw new RangeError(`Argument "lettercase"'s value is not in the method list! ([GitHub Action] Fetch Language List)`);
+	};
+	if (advancedDetermine.isStringSingleLine(repository) !== true) {
 		throw new TypeError(`Argument "repository" must be type of string (non-nullable)! ([GitHub Action] Fetch Language List)`);
 	};
 	if (repository.search(/^[\w\d\-._]+\/[\w\d\-._]+$/giu) !== 0) {
@@ -52,7 +81,6 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 	githubAction.core.info(`Filter language list. ([GitHub Action] Fetch Language List)`);
 	switch (filter.toLowerCase()) {
 		case "none":
-		case "no":
 			listOutput = listFull;
 			break;
 		case "codeql":
@@ -84,7 +112,7 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 			});
 			break;
 		default:
-			throw new RangeError(`Argument "filter"'s value is not in the method list! ([GitHub Action] Language List`);
+			throw new Error();
 	};
 	githubAction.core.debug(`Language List - Filter: ${(listOutput.length > 0) ? listOutput.join(", ") : "N/A"} ([GitHub Action] Fetch Language List)`);
 	githubAction.core.info(`Letter case language list. ([GitHub Action] Fetch Language List)`);
@@ -102,7 +130,7 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 			});
 			break;
 		default:
-			throw new RangeError(`Argument "lettercase"'s value is not in the method list! ([GitHub Action] Language List`);
+			throw new Error();
 	};
 	githubAction.core.debug(`Language List - Letter Case: ${(listOutput.length > 0) ? listOutput.join(", ") : "N/A"} ([GitHub Action] Fetch Language List)`);
 	githubAction.core.info(`Format language list. ([GitHub Action] Fetch Language List)`);
@@ -111,19 +139,17 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 		case "comma":
 			result = listOutput.join(",");
 			break;
-		case "dispatch":
-			result = (listOutput.length > 0) ? "true" : "false";
-			break;
 		case "json":
 			result = JSON.stringify({
 				"language": listOutput
 			});
 			break;
 		default:
-			throw new RangeError(`Argument "format"'s value is not in the method list! ([GitHub Action] Language List`);
+			throw new Error();
 	};
 	githubAction.core.debug(`Language List - Format: ${result} ([GitHub Action] Fetch Language List)`);
 	githubAction.core.info(`Export workflow argument. ([GitHub Action] Fetch Language List)`);
+	githubAction.core.setOutput("dispatch", (listOutput.length > 0) ? "true" : "false");
 	githubAction.core.setOutput("language", result);
 })().catch((error) => {
 	githubAction.core.error(error);

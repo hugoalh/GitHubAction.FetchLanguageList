@@ -99,10 +99,13 @@ Any
 
 **\[Optional\]** `<string = "json">` Format.
 - `"comma"` Output a comma (`,`) separated string (e.g.: `"c,javascript,python"`).
-- `"dispatch"` Output a boolean (i.e.: `true` or `false`).
 - `"json"` Output an object JSON (e.g.: `{ "language": [ "c", "javascript", "python" ] }`).
 
 ### 📤 Output
+
+#### `dispatch`
+
+`<boolean>` Signal.
 
 #### `language`
 
