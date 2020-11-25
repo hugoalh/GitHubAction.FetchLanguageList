@@ -83,7 +83,7 @@ Any
 
 #### `filter`
 
-**\[Optional\]** `<string = "none">` Result filter.
+**\[Optional\]** `<string = "none">` Result filter; Use comma (`,`) to split multiple filter.
 - `"none"`/`"no"` Output all of the language names that detected.
 - `"codeql"` Output all of the language names that detected and CodeQL is supported.
 - `"ossar"` Output all of the language names that detected and OSSAR (Open Source Static Analysis Runner) is supported.
@@ -105,7 +105,7 @@ Any
 
 #### `dispatch`
 
-`<boolean>` Signal.
+`<boolean>` Output signal.
 
 #### `language`
 
@@ -123,7 +123,7 @@ jobs:
     steps:
       - name: "Fetch Language List"
         id: "fetch-language-list"
-        uses: "hugoalh/GitHubAction.FetchLanguageList@v1.1.0"
+        uses: "hugoalh/GitHubAction.FetchLanguageList@v1.2.0"
         with:
           filter: "codeql"
           lettercase: "lower"
@@ -138,7 +138,7 @@ jobs:
       - name: "Initialize CodeQL"
         uses: "github/codeql-action/init@v1"
         with:
-          languages: "${{steps.get-language-list.outputs.language}}"
+          languages: "${{steps.fetch-language-list.outputs.language}}"
           queries: "+security-and-quality"
       # - name: "Auto Build"
       #   uses: "github/codeql-action/autobuild@v1"
@@ -161,7 +161,7 @@ jobs:
       matrix: "${{steps.fetch-language-list-main.outputs.language}}"
     steps:
       - id: "fetch-language-list-main"
-        uses: "hugoalh/GitHubAction.FetchLanguageList@v1.1.0"
+        uses: "hugoalh/GitHubAction.FetchLanguageList@v1.2.0"
         with:
           filter: "codeql"
           lettercase: "lower"

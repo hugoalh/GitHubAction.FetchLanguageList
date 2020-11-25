@@ -10,46 +10,56 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 	};
 (async () => {
 	githubAction.core.info(`Import workflow argument. ([GitHub Action] Fetch Language List)`);
-	let filter = githubAction.core.getInput("filter"),
+	let filterInput = githubAction.core.getInput("filter"),
 		format = githubAction.core.getInput("format"),
 		letterCase = githubAction.core.getInput("lettercase"),
 		repository = githubAction.core.getInput("repository"),
 		token = githubAction.core.getInput("token");
 	githubAction.core.info(`Analysis workflow argument. ([GitHub Action] Fetch Language List)`);
-	if (advancedDetermine.isStringSingleLine(filter, { allowWhitespace: false }) !== true) {
+	if (advancedDetermine.isStringSingleLine(filterInput) !== true) {
 		throw new TypeError(`Argument "filter" must be type of string (non-nullable)! ([GitHub Action] Fetch Language List)`);
 	};
-	switch (filter.toLowerCase()) {
-		case "none":
-		case "no":
-			filter = "none";
-			break;
-		case "codeql":
-		case "ossar":
-			filter = filter.toLowerCase();
-			break;
-		default:
-			throw new RangeError(`Argument "filter"'s value is not in the method list! ([GitHub Action] Fetch Language List)`);
-	};
-	if (advancedDetermine.isStringSingleLine(format, { allowWhitespace: false }) !== true) {
+	let filterHandle = [];
+	filterInput.split(",").forEach((element) => {
+		element = element.trim().toLowerCase();
+		switch (element) {
+			case "none":
+			case "no":
+				if (filterHandle.includes("none") === false) {
+					filterHandle.push("none");
+				};
+				break;
+			case "codeql":
+			case "ossar":
+				if (filterHandle.includes(element) === false) {
+					filterHandle.push(element);
+				};
+				break;
+			case "":
+				break;
+			default:
+				throw new RangeError(`Argument "filter"'s value is not in the method list! ([GitHub Action] Fetch Language List)`);
+		};
+	});
+	if (advancedDetermine.isStringSingleLine(format) !== true) {
 		throw new TypeError(`Argument "format" must be type of string (non-nullable)! ([GitHub Action] Fetch Language List)`);
 	};
-	switch (format.toLowerCase()) {
+	format = format.toLowerCase();
+	switch (format) {
 		case "comma":
 		case "json":
-			format = format.toLowerCase();
 			break;
 		default:
 			throw new RangeError(`Argument "format"'s value is not in the method list! ([GitHub Action] Fetch Language List)`);
 	};
-	if (advancedDetermine.isStringSingleLine(letterCase, { allowWhitespace: false }) !== true) {
+	if (advancedDetermine.isStringSingleLine(letterCase) !== true) {
 		throw new TypeError(`Argument "lettercase" must be type of string (non-nullable)! ([GitHub Action] Fetch Language List)`);
 	};
-	switch (letterCase.toLowerCase()) {
+	letterCase = letterCase.toLowerCase();
+	switch (letterCase) {
 		case "keep":
 		case "lower":
 		case "upper":
-			letterCase = letterCase.toLowerCase();
 			break;
 		default:
 			throw new RangeError(`Argument "lettercase"'s value is not in the method list! ([GitHub Action] Fetch Language List)`);
@@ -57,10 +67,10 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 	if (advancedDetermine.isStringSingleLine(repository) !== true) {
 		throw new TypeError(`Argument "repository" must be type of string (non-nullable)! ([GitHub Action] Fetch Language List)`);
 	};
-	if (repository.search(/^[\w\d\-._]+\/[\w\d\-._]+$/giu) !== 0) {
+	if (repository.search(/^[\d\w\-._]+\/[\d\w\-._]+$/giu) !== 0) {
 		throw new SyntaxError(`Argument "repository"'s value is not match the require pattern! ([GitHub Action] Fetch Language List)`);
 	};
-	if (advancedDetermine.isStringSingleLine(token, { allowWhitespace: false }) !== true) {
+	if (advancedDetermine.isStringSingleLine(token) !== true) {
 		throw new TypeError(`Argument "token" must be type of string (non-nullable)! ([GitHub Action] Fetch Language List)`);
 	};
 	githubAction.core.info(`Send network request to GitHub. ([GitHub Action] Fetch Language List)`);
@@ -79,41 +89,51 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 		listOutput = [];
 	githubAction.core.debug(`Language List - Fetch: ${(listFull.length > 0) ? listFull.join(", ") : "N/A"} ([GitHub Action] Fetch Language List)`);
 	githubAction.core.info(`Filter language list. ([GitHub Action] Fetch Language List)`);
-	switch (filter.toLowerCase()) {
-		case "none":
-			listOutput = listFull;
-			break;
-		case "codeql":
-			listFull.forEach((element) => {
-				switch (element.toLowerCase()) {
-					case "csharp":
-					case "cpp":
-					case "go":
-					case "java":
-					case "javascript":
-					case "python":
-						listOutput.push(element);
-						break;
-					default:
-						break;
-				};
-			});
-			break;
-		case "ossar":
-			listFull.forEach((element) => {
-				switch (element.toLowerCase()) {
-					case "javascript":
-					case "python":
-						listOutput.push(element);
-						break;
-					default:
-						break;
-				};
-			});
-			break;
-		default:
-			throw new Error();
-	};
+	filterHandle.forEach((elementFilter) => {
+		switch (elementFilter) {
+			case "none":
+				listFull.forEach((elementLanguage) => {
+					if (listOutput.includes(elementLanguage) === false) {
+						listOutput.push(elementLanguage);
+					};
+				});
+				break;
+			case "codeql":
+				listFull.forEach((elementLanguage) => {
+					switch (elementLanguage.toLowerCase()) {
+						case "csharp":
+						case "cpp":
+						case "go":
+						case "java":
+						case "javascript":
+						case "python":
+							if (listOutput.includes(elementLanguage) === false) {
+								listOutput.push(elementLanguage);
+							};
+							break;
+						default:
+							break;
+					};
+				});
+				break;
+			case "ossar":
+				listFull.forEach((elementLanguage) => {
+					switch (elementLanguage.toLowerCase()) {
+						case "javascript":
+						case "python":
+							if (listOutput.includes(elementLanguage) === false) {
+								listOutput.push(elementLanguage);
+							};
+							break;
+						default:
+							break;
+					};
+				});
+				break;
+			default:
+				throw new Error();
+		};
+	});
 	githubAction.core.debug(`Language List - Filter: ${(listOutput.length > 0) ? listOutput.join(", ") : "N/A"} ([GitHub Action] Fetch Language List)`);
 	githubAction.core.info(`Letter case language list. ([GitHub Action] Fetch Language List)`);
 	switch (letterCase.toLowerCase()) {
