@@ -81,9 +81,13 @@ Any
 
 **\[Optional\]** `<string = "${{github.repository}}">` Repository; Default is current repository.
 
+#### `languagelist`
+
+**\[Optional\]** `<(string|object.json)>` A port for import previous result for different process purpose (reduce network request usage); When using this argument, [`token`](#token) and [`repository`](#repository) will ignore.
+
 #### `filter`
 
-**\[Optional\]** `<string = "none">` Result filter; Use comma (`,`) to split multiple filter.
+**\[Optional\]** `<string = "none">` Result filter; When with multiple filters, split each filter with comma (`,`) or per line.
 - `"none"`/`"no"` Output all of the language names that detected.
 - `"codeql"` Output all of the language names that detected and CodeQL is supported.
 - `"ossar"` Output all of the language names that detected and OSSAR (Open Source Static Analysis Runner) is supported.

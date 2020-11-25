@@ -10,6 +10,9 @@ inputs:
     description: "{string} Repository."
     required: false
     default: "${{github.repository}}"
+  languagelist:
+    description: "{(string|object.json)} A port for import previous result for different process purpose."
+    required: false
   filter:
     description: "{string} Result filter."
     required: false
