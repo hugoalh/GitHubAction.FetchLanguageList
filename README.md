@@ -87,7 +87,7 @@ Any
 
 #### `filter`
 
-**\[Optional\]** `<string = "none">` Result filter; When with multiple filters, split each filter with comma (`,`) or per line.
+**\[Optional\]** `<string = "none">` Result filter; When using multiple filters, split each filter with comma (`,`) or per line.
 - `"none"`/`"no"` Output all of the language names that detected.
 - `"codeql"` Output all of the language names that detected and CodeQL is supported.
 - `"ossar"` Output all of the language names that detected and OSSAR (Open Source Static Analysis Runner) is supported.
