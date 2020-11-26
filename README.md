@@ -83,11 +83,11 @@ Any
 
 #### `languagelist`
 
-**\[Optional\]** `<(string|object.json)>` A port for import previous result for different process purpose (reduce network usage); When using this argument, [`token`](#token) and [`repository`](#repository) will ignore.
+**\[Optional\]** `<(string|object.json)>` A port for import previous result for different process purpose (reduce network usage); When use this argument, [`token`](#token) and [`repository`](#repository) will ignore.
 
 #### `filter`
 
-**\[Optional\]** `<string = "none">` Result filter; When using multiple filters, split each filter with comma (`,`) or per line.
+**\[Optional\]** `<string = "none">` Result filter; When use multiple filters, split each filter with comma (`,`) or per line.
 - `"none"`/`"no"` Output all of the language names that detected.
 - `"codeql"` Output all of the language names that detected and CodeQL is supported.
 - `"ossar"` Output all of the language names that detected and OSSAR (Open Source Static Analysis Runner) is supported.
