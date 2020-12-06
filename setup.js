@@ -1,7 +1,7 @@
 /*==================
 [GitHub Action] Fetch Language List - Setup
 	Language:
-		NodeJS/12.13.0
+		NodeJS/14.15.0
 ==================*/
 const childProcess = require("child_process");
 childProcess.execSync(

@@ -68,8 +68,8 @@ Any
 
 #### Software
 
-- NodeJS (>= v12.13)
-- NPM (>= v6.12)
+- NodeJS (>= v14.15)
+- NPM (>= v6.14.8)
 
 ### 📥 Input
 
