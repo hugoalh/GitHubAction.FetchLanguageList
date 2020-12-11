@@ -26,4 +26,18 @@ jobs:
       - name: "Analyze Repository"
         uses: "github/super-linter@v3.14.3"
         env:
+          DISABLE_ERRORS: "true"
           GITHUB_TOKEN: "${{secrets.GITHUB_TOKEN}}"
+          LINTER_RULES_PATH: ".github/linters"
+          LOG_FILE: "super-linter.log"
+          LOG_LEVEL: "VERBOSE"
+          MULTI_STATUS: "true"
+          OUTPUT_DETAILS: "detailed"
+          OUTPUT_FOLDER: "super-linter-output"
+          VALIDATE_ALL_CODEBASE: "true"
+      - name: "Upload Result"
+        uses: "actions/upload-artifact@v2.2.1"
+        with:
+          if-no-files-found: "warn"
+          name: "super-linter-output"
+          path: "${{env.GITHUB_WORKSPACE}}/super-linter-output"
