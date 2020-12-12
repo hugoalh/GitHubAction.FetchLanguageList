@@ -68,14 +68,8 @@ Any
 
 #### Software
 
-##### Default / `/via-nodejs`
-
 - NodeJS (>= v14.15)
 - NPM (>= v6.14.8)
-
-##### `/via-docker`
-
-Docker
 
 ### 📥 Input
 
