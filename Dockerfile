@@ -1,5 +1,5 @@
-FROM node:lts
-COPY package*.json /
-COPY lib/main.js /
+FROM node:14
+COPY package*.json ./
+COPY lib ./
 RUN "npm install"
-RUN ["node", "main.js"]
+RUN "node main.js"
