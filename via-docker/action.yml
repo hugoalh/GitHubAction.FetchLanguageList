@@ -31,9 +31,15 @@ outputs:
   language:
     description: "{(string|object.json)} Language list."
 runs:
-  using: "node12"
-  pre: "lib/setup.js"
-  main: "lib/main.js"
+  using: "docker"
+  image: "../Dockerfile"
+  args:
+    - ${{inputs.filter}}
+    - ${{inputs.format}}
+    - ${{inputs.languagelist}}
+    - ${{inputs.lettercase}}
+    - ${{inputs.repository}}
+    - ${{inputs.token}}
 branding:
   icon: "search"
   color: "gray-dark"

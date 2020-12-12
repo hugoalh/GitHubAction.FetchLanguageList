@@ -1,6 +1,6 @@
 {
 	"name": "githubaction.fetchlanguagelist",
-	"version": "1.3.0",
+	"version": "1.4.0",
 	"description": "A GitHub action to fetch repository language list.",
 	"keywords": [
 		"github-action",
@@ -13,7 +13,7 @@
 	},
 	"license": "MIT",
 	"author": "hugoalh",
-	"main": "main.js",
+	"main": "lib/main.js",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/hugoalh/GitHubAction.FetchLanguageList.git"
