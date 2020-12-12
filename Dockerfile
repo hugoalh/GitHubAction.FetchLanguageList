@@ -1,5 +1,5 @@
 FROM node:14
 COPY package*.json ./
-COPY lib ./
+COPY lib ./lib/
 RUN ["npm", "install"]
-RUN ["node", "main.js"]
+ENTRYPOINT ["node", "lib/main.js"]
