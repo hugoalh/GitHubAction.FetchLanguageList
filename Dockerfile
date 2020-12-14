@@ -1,6 +1,6 @@
 FROM node:14
-WORKDIR /github/workspace
 COPY package*.json /
-COPY lib/main.js /
+COPY lib /lib
 RUN ["npm", "install"]
-ENTRYPOINT ["node", "main.js"]
+RUN "ls"
+ENTRYPOINT ["node", "lib/main.js"]
