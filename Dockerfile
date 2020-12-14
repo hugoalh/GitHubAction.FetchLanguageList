@@ -1,6 +1,6 @@
 FROM node:14
 COPY package*.json /
-COPY lib /lib
+COPY lib/main.js /main.js
 RUN ["npm", "install"]
 RUN "ls"
-ENTRYPOINT ["node", "lib/main.js"]
+ENTRYPOINT ["node", "main.js"]
