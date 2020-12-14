@@ -10,12 +10,13 @@
 > | ❌ | **No:** This is not supported due to this version(s) is too old. |
 > | ⚠ | **Issue:** This is not supported due to this version(s) is confirmed contains bug(s) and/or issue(s). |
 
-| **Version** | **Targeted NodeJS Version** | **Support** |
+| **Version** | **Targeted Environment** | **Support** |
 |:---:|:---:|:---:|
-| v1.3 | v14.15.0 | L |
-| v1.2 | v12.13.0 | 👎 |
-| < v1.2 | v12.13.0 | 👎 |
-| v1.0.0 \~ v1.0.4 | v12.0.0 | 👎 |
+| v1.4 | Docker / NodeJS v14.15.0 |  |
+| v1.3 | NodeJS v14.15.0 | L |
+| v1.2 | NodeJS v12.13.0 | 👎 |
+| < v1.2 | NodeJS v12.13.0 | 👎 |
+| v1.0.0 \~ v1.0.4 | NodeJS v12.0.0 | 👎 |
 
 ## Report Vulnerability
 
