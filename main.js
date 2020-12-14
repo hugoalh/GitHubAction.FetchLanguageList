@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /*==================
 [GitHub Action] Fetch Language List
 	Language:
