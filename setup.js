@@ -4,10 +4,10 @@
 		NodeJS/14.15.0
 ==================*/
 const childProcess = require("child_process");
-let consoleLog = childProcess.execSync(
+let setupLog = childProcess.execSync(
 	`npm install`,
 	{
 		cwd: __dirname
 	}
 );
-console.log(consoleLog.toString("utf8"));
+console.log(setupLog.toString("utf8"));
