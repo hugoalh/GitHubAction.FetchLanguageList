@@ -2,14 +2,14 @@ name: "Fetch Language List"
 author: "hugoalh"
 description: "Fetch repository language list."
 inputs:
-  token:
-    description: "{string.secret} GitHub personal access token."
-    required: false
-    default: "${{github.token}}"
   repository:
     description: "{string} Repository."
     required: false
     default: "${{github.repository}}"
+  token:
+    description: "{string.secret} GitHub personal access token."
+    required: false
+    default: "${{github.token}}"
   languagelist:
     description: "{(string|object.json)} A port for import previous result for different process purpose."
     required: false
@@ -27,7 +27,7 @@ inputs:
     default: "json"
 outputs:
   dispatch:
-    description: "{boolean} Output signal."
+    description: "{boolean} Signal if there have any output or not."
   language:
     description: "{(string|object.json)} Language list."
 runs:

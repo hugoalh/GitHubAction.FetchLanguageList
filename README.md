@@ -62,6 +62,13 @@ A GitHub action to fetch repository language list.
 
 ### 🏗 Environment
 
+If need to use a different environment to execute this action, add a suffix after action's index and before version tag, i.e.:
+```yml
+uses: "hugoalh/GitHubAction.FetchLanguageList@v1.4.0"# Default
+uses: "hugoalh/GitHubAction.FetchLanguageList/use-nodejs@v1.4.0"# NodeJS
+uses: "hugoalh/GitHubAction.FetchLanguageList/use-docker@v1.4.0"# Docker
+```
+
 <table>
   <tr>
     <td align="center"></td>
@@ -85,17 +92,17 @@ A GitHub action to fetch repository language list.
 
 ### 📥 Input
 
-#### `token`
-
-**\[Optional\]** `<string.secret = "${{github.token}}">` GitHub personal access token.
-
 #### `repository`
 
 **\[Optional\]** `<string = "${{github.repository}}">` Repository; Default is current repository.
 
+#### `token`
+
+**\[Optional\]** `<string.secret = "${{github.token}}">` GitHub personal access token.
+
 #### `languagelist`
 
-**\[Optional\]** `<(string|object.json)>` A port for import previous result for different process purpose (reduce network usage); When use this argument, [`token`](#token) and [`repository`](#repository) will ignore.
+**\[Optional\]** `<(string|object.json)>` A port for import previous result for different process purpose (reduce network usage); When use this argument, [`repository`](#repository) and [`token`](#token) will ignore.
 
 #### `filter`
 
@@ -121,7 +128,7 @@ A GitHub action to fetch repository language list.
 
 #### `dispatch`
 
-`<boolean>` Output signal.
+`<boolean>` Signal if there have any output or not.
 
 #### `language`
 
@@ -139,7 +146,7 @@ jobs:
     steps:
       - name: "Fetch Language List"
         id: "fetch-language-list"
-        uses: "hugoalh/GitHubAction.FetchLanguageList@v1.2.0"
+        uses: "hugoalh/GitHubAction.FetchLanguageList@v1.4.0"
         with:
           filter: "codeql"
           lettercase: "lower"
@@ -177,7 +184,7 @@ jobs:
       matrix: "${{steps.fetch-language-list-main.outputs.language}}"
     steps:
       - id: "fetch-language-list-main"
-        uses: "hugoalh/GitHubAction.FetchLanguageList@v1.2.0"
+        uses: "hugoalh/GitHubAction.FetchLanguageList@v1.4.0"
         with:
           filter: "codeql"
           lettercase: "lower"

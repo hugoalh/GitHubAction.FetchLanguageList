@@ -12,11 +12,11 @@
 
 | **Version** | **Targeted Environment** | **Support** |
 |:---:|:---:|:---:|
-| v1.4 | Docker / NodeJS v14.15.0 |  |
-| v1.3 | NodeJS v14.15.0 | L |
-| v1.2 | NodeJS v12.13.0 | 👎 |
-| < v1.2 | NodeJS v12.13.0 | 👎 |
-| v1.0.0 \~ v1.0.4 | NodeJS v12.0.0 | 👎 |
+| v1.4 | Docker / NodeJS v14.15.0 | L |
+| v1.3 | NodeJS v14.15.0 | 👎 |
+| v1.2 | NodeJS v12.13.0 | ❌ |
+| < v1.2 | NodeJS v12.13.0 | ❌ |
+| v1.0.0 \~ v1.0.4 | NodeJS v12.0.0 | ❌ |
 
 ## Report Vulnerability
 
