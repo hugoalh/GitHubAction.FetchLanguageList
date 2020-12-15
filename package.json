@@ -13,7 +13,7 @@
 	},
 	"license": "MIT",
 	"author": "hugoalh",
-	"main": "lib/main.js",
+	"main": "main.js",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/hugoalh/GitHubAction.FetchLanguageList.git"

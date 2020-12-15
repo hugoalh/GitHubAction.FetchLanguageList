@@ -62,20 +62,26 @@ A GitHub action to fetch repository language list.
 
 ### 🏗 Environment
 
-#### Operating System
-
-Any
-
-#### Software
-
-##### Default / Via NodeJS (`/via-nodejs`)
-
-- NodeJS (>= v14.15)
-- NPM (>= v6.14.8)
-
-##### Via Docker (`/via-docker`)
-
-Docker
+<table>
+  <tr>
+    <td align="center"></td>
+    <td align="center"><b>Use NodeJS (Default / <code>/use-nodejs</code>)</b></td>
+    <td align="center"><b>Use Docker (<code>/use-docker</code>)</b></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Operating System</b></td>
+    <td>Any</td>
+    <td>Any</td>
+  </tr>
+  <tr>
+    <td align="center"><b>Software</b></td>
+    <td><ul>
+      <li>NodeJS (>= v14.15)</li>
+      <li>NPM (>= v6.14.8)</li>
+    </ul></td>
+    <td>Docker</td>
+  </tr>
+</table>
 
 ### 📥 Input
 

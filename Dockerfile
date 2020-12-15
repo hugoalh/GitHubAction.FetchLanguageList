@@ -1,5 +1,5 @@
 FROM node:14
-COPY package*.json /
-COPY main.js /main.js
+COPY package*.json /github/workspace/
+COPY main.js /github/workspace/main.js
 RUN ["npm", "install"]
-ENTRYPOINT ["node", "/main.js"]
+ENTRYPOINT ["node", "main.js"]
