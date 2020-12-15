@@ -1,5 +1,6 @@
 FROM node:14
-COPY package*.json /github/workspace/
-COPY main.js /github/workspace/main.js
+WORKDIR fetch_language_list
+COPY package*.json /
+COPY main.js /main.js
 RUN ["npm", "install"]
-ENTRYPOINT ["node", "main.js"]
+ENTRYPOINT ["node", "fetch_language_list/main.js"]
