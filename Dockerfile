@@ -1,6 +1,6 @@
 FROM node:14
-WORKDIR /fetch-language-list
+WORKDIR /app
 COPY package*.json ./
-COPY main.js ./main.js
 RUN ["npm", "install"]
-ENTRYPOINT ["/fetch-language-list/main.js"]
+COPY main.js ./
+CMD ["node", "/fetch-language-list/main.js"]
