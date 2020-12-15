@@ -124,8 +124,14 @@ const advancedDetermine = require("@hugoalh/advanced-determine"),
 			case "codeql":
 				languageListHandle.forEach((elementLanguage) => {
 					switch (elementLanguage.toLowerCase()) {
-						case "csharp":
+						case "c":
+						case "c++":
 						case "cpp":
+							if (languageListOutput.includes("Cpp") === false) {
+								languageListOutput.push("Cpp");
+							};
+							break;
+						case "csharp":
 						case "go":
 						case "java":
 						case "javascript":
