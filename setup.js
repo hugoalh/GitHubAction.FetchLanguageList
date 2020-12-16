@@ -5,7 +5,7 @@
 ==================*/
 const childProcess = require("child_process");
 let setupLog = childProcess.execSync(
-	`npm install`,
+	`npm install --production`,
 	{
 		cwd: __dirname
 	}
