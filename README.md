@@ -83,12 +83,16 @@ A GitHub action to fetch repository language list.
   </tr>
 </table>
 
-> If need to use a different environment to execute this action, add a suffix after action's index and before version tag, i.e.:
-> ```yml
-> uses: "hugoalh/GitHubAction.FetchLanguageList@v1.4.0"# Default
-> uses: "hugoalh/GitHubAction.FetchLanguageList/use-nodejs@v1.4.0"# NodeJS
-> uses: "hugoalh/GitHubAction.FetchLanguageList/use-docker@v1.4.0"# Docker
-> ```
+If need to use a different environment to execute this action, add a suffix after action's index and before version tag, i.e.:
+
+```yml
+# Default
+uses: "hugoalh/GitHubAction.FetchLanguageList@v1.4.0"
+# NodeJS
+uses: "hugoalh/GitHubAction.FetchLanguageList/use-nodejs@v1.4.0"
+# Docker
+uses: "hugoalh/GitHubAction.FetchLanguageList/use-docker@v1.4.0"
+```
 
 ### 📥 Input
 
