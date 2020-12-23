@@ -70,8 +70,8 @@ A GitHub action to fetch repository language list.
   </tr>
   <tr>
     <td align="center"><b>Operating System</b></td>
-    <td>Any</td>
-    <td>Any</td>
+    <td><i>Any</i></td>
+    <td>Linux</td>
   </tr>
   <tr>
     <td align="center"><b>Software</b></td>
